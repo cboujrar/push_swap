@@ -6,11 +6,11 @@
 /*   By: cboujrar <cboujrar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 17:47:13 by cboujrar          #+#    #+#             */
-/*   Updated: 2024/02/19 17:47:53 by cboujrar         ###   ########.fr       */
+/*   Updated: 2024/02/19 18:22:57 by cboujrar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<push_swap.h>
+#include"push_swap.h"
 
 t_list* new_list(int value , char a)
 {

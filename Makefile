@@ -3,7 +3,7 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 LIBC = ar rcs
 RM = rm -f
-MANDATORY = 
+MANDATORY = algorithm.c checker.c helpers.c list_operations.c operations.c  push_swap.c
 	
 MANDATORY_O = ${MANDATORY:.c=.o}
 .o:.c

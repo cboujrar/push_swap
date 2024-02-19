@@ -6,11 +6,11 @@
 /*   By: cboujrar <cboujrar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 17:36:23 by cboujrar          #+#    #+#             */
-/*   Updated: 2024/02/19 17:43:02 by cboujrar         ###   ########.fr       */
+/*   Updated: 2024/02/19 18:25:35 by cboujrar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<push_swap.h>
+#include"push_swap.h"
 
 int	ft_atoi(const char *str)
 {
@@ -34,7 +34,18 @@ int	ft_atoi(const char *str)
 	}
 	return (result * signe);
 }
-static int	count_words(const char *str)
+
+size_t	ft_strlen(const char *str)
+{
+	size_t	i;
+
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
+}
+
+int	count_words(const char *str)
 {
 	int	count;
 	int	x;
@@ -55,7 +66,7 @@ static int	count_words(const char *str)
 	return (count);
 }
 
-static char	*put_word(const char *str, int start, int end)
+char	*put_word(const char *str, int start, int end)
 {
 	char	*word;
 	int		i;
@@ -74,7 +85,7 @@ static char	*put_word(const char *str, int start, int end)
 	return (word);
 }
 
-static void	*free_array(char **str, int count)
+ void	*free_array(char **str, int count)
 {
 	int	i;
 
@@ -88,7 +99,7 @@ static void	*free_array(char **str, int count)
 	return (NULL);
 }
 
-static void	ft_initiate_vars(size_t *i, int *j, int *s_word)
+ void	ft_initiate_vars(size_t *i, int *j, int *s_word)
 {
 	*i = 0;
 	*j = 0;
@@ -103,7 +114,7 @@ char	**ft_split(const char *s)
 	int		s_word;
 
 	ft_initiate_vars(&i, &j, &s_word);
-	res = ft_calloc((count_words(s) + 1), sizeof(char *));
+	res = calloc((count_words(s) + 1), sizeof(char *));
 	if (!res)
 		return (NULL);
 	while (i <= ft_strlen(s))

@@ -6,11 +6,11 @@
 /*   By: cboujrar <cboujrar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 17:43:26 by cboujrar          #+#    #+#             */
-/*   Updated: 2024/02/19 17:44:03 by cboujrar         ###   ########.fr       */
+/*   Updated: 2024/02/19 18:29:35 by cboujrar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<push_swap.h>
+#include"push_swap.h"
 
 int main(int ac, char **av)
 {

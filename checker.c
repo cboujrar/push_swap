@@ -6,7 +6,7 @@
 /*   By: cboujrar <cboujrar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 11:58:23 by cboujrar          #+#    #+#             */
-/*   Updated: 2024/01/27 15:51:15 by cboujrar         ###   ########.fr       */
+/*   Updated: 2024/02/19 18:28:46 by cboujrar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void print_error()
 
 int is_alpha(int c)
 {
-    if ((c > 65 && c < 9 ) || (c > 97 && c < 122))
+    if ((c > 65 && c < 90 ) || (c > 97 && c < 122))
         return (1);
     return (0);
 }
@@ -89,28 +89,28 @@ int error_check(t_list *list)
     return (0);
 }
 
-int main ()
-{
-    t_list *list;
+// int main ()
+// {
+//     t_list *list;
     
-    list = malloc(sizeof(t_list));
-    list->value = 17;
-    list->next = malloc(sizeof(t_list));
-    list->next->value = 2;
-    list->next->next = malloc(sizeof(t_list));
-    list->next->next->value = 5;
-    // if (is_duplicate(list))
-    //     print_error();
-    // else 
-    //     printf("Good!\n");
-    // printf ("----------------\n");
-    // if (is_sort(list))
-    //     print_error();
-    // else 
-    //     printf("you can continue to sort them\n");
-    if (error_check(list))
-        printf("change the list please");
-    else
-        printf("no error");
-    return(0);
-}
+//     list = malloc(sizeof(t_list));
+//     list->value = 17;
+//     list->next = malloc(sizeof(t_list));
+//     list->next->value = 2;
+//     list->next->next = malloc(sizeof(t_list));
+//     list->next->next->value = 5;
+//     // if (is_duplicate(list))
+//     //     print_error();
+//     // else 
+//     //     printf("Good!\n");
+//     // printf ("----------------\n");
+//     // if (is_sort(list))
+//     //     print_error();
+//     // else 
+//     //     printf("you can continue to sort them\n");
+//     if (error_check(list))
+//         printf("change the list please");
+//     else
+//         printf("no error");
+//     return(0);
+// }

@@ -6,7 +6,7 @@
 /*   By: cboujrar <cboujrar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 15:51:48 by cboujrar          #+#    #+#             */
-/*   Updated: 2024/02/19 17:49:18 by cboujrar         ###   ########.fr       */
+/*   Updated: 2024/02/19 18:20:29 by cboujrar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -200,7 +200,7 @@ int check_index(t_list *list, int number)
             return (i);
         else
             i++;
-            list = list->next;
+        list = list->next;
     }
     return (-1);
 }
@@ -213,7 +213,7 @@ void push_to_b(t_list **list_a, t_list **list_b)
     int start;
     int end;
     int offset;
-    int i;
+    // int i;
     int *sorted_array;
     int j;
     t_list * tracker;
@@ -436,11 +436,11 @@ void print_list(t_list *list) {
     printf("\n");
 }
 
-int main(int ac , char **av) {
+int main() {
     t_list *list_a = NULL;
     t_list *list_b = NULL;
     int *arr;
-    int i = 0;
+    // int i = 0;
     
     // list_b = malloc(sizeof(t_list));
     // list_b->identif = 'b';
