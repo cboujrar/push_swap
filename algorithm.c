@@ -6,7 +6,7 @@
 /*   By: cboujrar <cboujrar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 15:51:48 by cboujrar          #+#    #+#             */
-/*   Updated: 2024/02/19 18:20:29 by cboujrar         ###   ########.fr       */
+/*   Updated: 2024/02/21 01:06:49 by cboujrar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -436,66 +436,66 @@ void print_list(t_list *list) {
     printf("\n");
 }
 
-int main() {
-    t_list *list_a = NULL;
-    t_list *list_b = NULL;
-    int *arr;
-    // int i = 0;
+// int main() {
+//     t_list *list_a = NULL;
+//     t_list *list_b = NULL;
+//     // int *arr;
+//     // int i = 0;
     
-    // list_b = malloc(sizeof(t_list));
-    // list_b->identif = 'b';
-    // printf("-----%d-----", list_b->value);
-    append(&list_a, 1);
-    append(&list_a, 5);
-    append(&list_a, 17);
-    append(&list_a, 0);
-    append(&list_a, 2);
-    // append(&list_a, 8);
-    // append(&list_a, 3);
-    // append(&list_a, 15);
-    // append(&list_a, 9);
-    // append(&list_a, 6);
-    // append(&list_a, 22);
-    // append(&list_a, 4);
-    // append(&list_a, 32);
-    // append(&list_a, 10);
-    // append(&list_a, 25);
-    // append(&list_a, 11);
-    // append(&list_a, 24);
-    // while(av[i] != NULL)
-    // {
-    //     append(&list_a, *av[i]);
-    //     i++;
-    // }
-    list_a->identif = 'a';
-    arr = create_sorted_array(list_a);
+//     // list_b = malloc(sizeof(t_list));
+//     // list_b->identif = 'b';
+//     // printf("-----%d-----", list_b->value);
+//     append(&list_a, 1);
+//     append(&list_a, 5);
+//     append(&list_a, 17);
+//     append(&list_a, 0);
+//     append(&list_a, 2);
+//     // append(&list_a, 8);
+//     // append(&list_a, 3);
+//     // append(&list_a, 15);
+//     // append(&list_a, 9);
+//     // append(&list_a, 6);
+//     // append(&list_a, 22);
+//     // append(&list_a, 4);
+//     // append(&list_a, 32);
+//     // append(&list_a, 10);
+//     // append(&list_a, 25);
+//     // append(&list_a, 11);
+//     // append(&list_a, 24);
+//     // while(av[i] != NULL)
+//     // {
+//     //     append(&list_a, *av[i]);
+//     //     i++;
+//     // }
+//     list_a->identif = 'a';
+//     // arr = create_sorted_array(list_a);
 
-    printf("Initial list_a: ");
-    print_list(list_a);
-    // printf("----------\n");
-    // while (i < list_size(list_a))
-    // {
-    //     printf("%d\n", arr[i]);
-    //     i++;
-    // }
-    // printf("-----------\n");
-    // push(&list_a, &list_b);
-    // printf("list B : %d\n", list_b->value);
-    // printf("list A %d\n", list_a->value);
-    // printf("-----%d\n" , check_index(arr, 2, 4, 9));
-    // printf("%p \n",&list_b);
-    list_a->identif = 'a';
-    push_to_b(&list_a, &list_b);
-    list_b->identif= 'b';
+//     printf("Initial list_a: ");
+//     print_list(list_a);
+//     // printf("----------\n");
+//     // while (i < list_size(list_a))
+//     // {
+//     //     printf("%d\n", arr[i]);
+//     //     i++;
+//     // }
+//     // printf("-----------\n");
+//     // push(&list_a, &list_b);
+//     // printf("list B : %d\n", list_b->value);
+//     // printf("list A %d\n", list_a->value);
+//     // printf("-----%d\n" , check_index(arr, 2, 4, 9));
+//     // printf("%p \n",&list_b);
+//     list_a->identif = 'a';
+//     push_to_b(&list_a, &list_b);
+//     list_b->identif= 'b';
     
-    printf("Modified list_a: ");
-    print_list(list_a);
-    printf("list_b: ");
-    print_list(list_b);
-    push_back_to_a(&list_a, &list_b);
-     printf("Modified list_a: ");
-    print_list(list_a);
-    printf("list_b: ");
-    print_list(list_b);
-    return 0;
-}
+//     printf("Modified list_a: ");
+//     print_list(list_a);
+//     printf("list_b: ");
+//     print_list(list_b);
+//     push_back_to_a(&list_a, &list_b);
+//      printf("Modified list_a: ");
+//     print_list(list_a);
+//     printf("list_b: ");
+//     print_list(list_b);
+//     return 0;
+// }

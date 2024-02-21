@@ -6,7 +6,7 @@
 /*   By: cboujrar <cboujrar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:08:39 by cboujrar          #+#    #+#             */
-/*   Updated: 2024/02/19 18:18:14 by cboujrar         ###   ########.fr       */
+/*   Updated: 2024/02/20 15:29:14 by cboujrar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,7 @@ void rrotate(t_list **list);
 void rrb(t_list **list);
 void rra(t_list **list);
 void rrr(t_list **list_a, t_list **list_b);
+void print_list(t_list *list);
+void append(t_list **list, int value);
 
 #endif
