@@ -6,7 +6,7 @@
 /*   By: cboujrar <cboujrar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 17:36:23 by cboujrar          #+#    #+#             */
-/*   Updated: 2024/02/19 18:25:35 by cboujrar         ###   ########.fr       */
+/*   Updated: 2024/02/22 19:11:59 by cboujrar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	ft_atoi(const char *str)
 	}
 	while (*str >= '0' && *str <= '9')
 	{
-		result = result * 10 + (*str - 48);
+		result = result * 10 + (*str - '0');
 		str++;
 	}
 	return (result * signe);

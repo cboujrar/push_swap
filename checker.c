@@ -6,7 +6,7 @@
 /*   By: cboujrar <cboujrar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 11:58:23 by cboujrar          #+#    #+#             */
-/*   Updated: 2024/02/20 15:21:34 by cboujrar         ###   ########.fr       */
+/*   Updated: 2024/02/22 19:26:54 by cboujrar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,38 @@ void print_error()
 
 int is_alpha(int c)
 {
-    if ((c > 65 && c < 90 ) || (c > 97 && c < 122))
+    if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
         return (1);
     return (0);
 }
 
-int int_range(int c)
+int int_range(char *str) 
 {
-    if (c > -2147483648 && c <= 2147483647)
-        return (1);
-    return(0);
-}
+    long long result; 
+    int sign;
 
+    sign = 1;
+    result = 0;
+    while (*str == ' ') 
+        str++;
+    if (*str == '-' || *str == '+') {
+        if (*str == '-')
+            sign = -1;
+        str++;
+    }
+
+    while (*str) 
+    {
+        if (*str >= '0' && *str <= '9') 
+            result = result * 10 + (*str - '0');
+        str++; 
+    }
+    if (sign == 1 && result > 2147483647) 
+        return 0; 
+    else if (sign == -1 && -result < -2147483648) 
+        return 0;
+    return 1; 
+}
 int is_duplicate(t_list *list)
 {
     int temp;
@@ -59,7 +79,7 @@ int is_sort(t_list *list)
 {
     if (!list)
         return(0);
-    while (list->next)
+    while (list)
     {
         if (list->value < list->next->value)
             list = list->next;
@@ -75,16 +95,6 @@ int error_check(t_list *list)
     {
         print_error();
         return(1);
-    }
-    while (list)
-    {
-        if (is_alpha(list->value) && !int_range(list->value))
-        {
-            print_error();
-            return(1);        
-        }
-        else
-            list =list->next;
     }
     return (0);
 }

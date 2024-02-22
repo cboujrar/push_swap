@@ -6,7 +6,7 @@
 /*   By: cboujrar <cboujrar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:08:39 by cboujrar          #+#    #+#             */
-/*   Updated: 2024/02/20 15:29:14 by cboujrar         ###   ########.fr       */
+/*   Updated: 2024/02/22 19:07:48 by cboujrar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void push_to_b(t_list **list_a, t_list **list_b);
 void push_back_to_a(t_list **list_a, t_list **list_b);
 void print_error();
 int is_alpha(int c);
-int int_range(int c);
+int int_range(char *str);
 int is_duplicate(t_list *list);
 int is_sort(t_list *list);
 int error_check(t_list *list);
