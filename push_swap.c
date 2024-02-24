@@ -6,7 +6,7 @@
 /*   By: cboujrar <cboujrar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 17:43:26 by cboujrar          #+#    #+#             */
-/*   Updated: 2024/02/22 19:28:39 by cboujrar         ###   ########.fr       */
+/*   Updated: 2024/02/23 17:44:13 by cboujrar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,10 @@ int main(int ac, char **av)
     
     i = 0;
     if (ac < 2)
+    {
         print_error();
+        return(0);
+    }
     else if(ac == 2)
     {
         while (av[1][i])
@@ -45,6 +48,7 @@ int main(int ac, char **av)
             }
             i++;
         }
+        i = 0;
         while (tab[i])
         {
             append(&list_a, ft_atoi(tab[i]));
@@ -56,9 +60,9 @@ int main(int ac, char **av)
     else
     {
         i = 1;
-        j = 0;
         while(av[i])
         {
+            j = 0;
             while (av[i][j])
             {
                 if (is_alpha(av[i][j]))

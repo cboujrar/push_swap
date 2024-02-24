@@ -6,7 +6,7 @@
 /*   By: cboujrar <cboujrar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 17:47:13 by cboujrar          #+#    #+#             */
-/*   Updated: 2024/02/19 18:22:57 by cboujrar         ###   ########.fr       */
+/*   Updated: 2024/02/23 17:27:11 by cboujrar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,10 @@ t_list *last_one(t_list *list)
 
 void add_back(t_list *list, int value)
 {  
-    if (!value || !list)
-        return;
     t_list *myList ;
+
+    if (!list)
+        return;
     myList = malloc(sizeof(t_list));
     if (!myList)
         return;

@@ -6,7 +6,7 @@
 /*   By: cboujrar <cboujrar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 15:51:48 by cboujrar          #+#    #+#             */
-/*   Updated: 2024/02/21 01:06:49 by cboujrar         ###   ########.fr       */
+/*   Updated: 2024/02/23 17:30:56 by cboujrar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -240,7 +240,7 @@ void push_to_b(t_list **list_a, t_list **list_b)
     printf("size is %d\n", size);
     
     // current = *list_a;
-    while (*list_a)
+    while (list_size(*list_a) > 0)
     {
         top = (*list_a)->value;
         // printf("----top = %d\n", top);

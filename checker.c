@@ -6,7 +6,7 @@
 /*   By: cboujrar <cboujrar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 11:58:23 by cboujrar          #+#    #+#             */
-/*   Updated: 2024/02/22 19:26:54 by cboujrar         ###   ########.fr       */
+/*   Updated: 2024/02/23 16:57:51 by cboujrar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int is_sort(t_list *list)
 {
     if (!list)
         return(0);
-    while (list)
+    while (list->next)
     {
         if (list->value < list->next->value)
             list = list->next;
