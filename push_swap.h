@@ -6,7 +6,7 @@
 /*   By: cboujrar <cboujrar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:08:39 by cboujrar          #+#    #+#             */
-/*   Updated: 2024/02/29 23:58:29 by cboujrar         ###   ########.fr       */
+/*   Updated: 2024/03/01 21:08:48 by cboujrar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,22 +25,21 @@ typedef struct s_list
 
 typedef struct s_prameters
 {
-	int		size;
-	int		pivot;
-	int		midd;
-	int		start;
-	int		end;
-	int		offset;
-}				t_parameters;
+	int				size;
+	int				pivot;
+	int				midd;
+	int				start;
+	int				end;
+	int				offset;
+}					t_parameters;
 
 typedef struct s_initial
 {
-	int		size;
-	int 	tracker;
-	int		down;
-	int 	*sorted_array;
-	int		j;
-}				t_initial;
+	int				size;
+	int				tracker;
+	int				down;
+	int				*sorted_array;
+}					t_initial;
 
 void				sort_array(int *arr, int size);
 int					*create_sorted_array(t_list *list);

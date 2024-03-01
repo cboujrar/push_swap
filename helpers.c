@@ -6,7 +6,7 @@
 /*   By: cboujrar <cboujrar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 17:36:23 by cboujrar          #+#    #+#             */
-/*   Updated: 2024/02/29 19:41:23 by cboujrar         ###   ########.fr       */
+/*   Updated: 2024/03/01 14:29:37 by cboujrar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
-void 	print_error(void)
+void	print_error(void)
 {
 	write(1, "Error\n", 6);
 }

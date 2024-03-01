@@ -26,18 +26,18 @@ int	parsin_2(char **av)
 			if (is_alpha(av[i][j]))
 			{
 				print_error();
-				return(0) ;
+				return (0);
 			}
 			j++;
 		}
 		if (!(int_range(av[i])))
 		{
 			print_error();
-			return(0) ;
+			return (0);
 		}
 		i++;
 	}
-	return(1);
+	return (1);
 }
 
 int	parsin_1(char *av, char **tab)
@@ -50,7 +50,7 @@ int	parsin_1(char *av, char **tab)
 		if (is_alpha(av[i]))
 		{
 			print_error();
-			return(0) ;
+			return (0);
 		}
 		i++;
 	}
@@ -60,30 +60,30 @@ int	parsin_1(char *av, char **tab)
 		if (!(int_range(tab[i])))
 		{
 			print_error();
-			return(0);
+			return (0);
 		}
 		i++;
 	}
-	return(1);
+	return (1);
 }
 
 int	first(char **av, t_list **list)
 {
 	int		i;
-	char 	**tab;
+	char	**tab;
 
 	i = 0;
 	tab = ft_split(av[1]);
 	if (!parsin_1(av[1], tab))
-		return(0);
+		return (0);
 	while (tab[i])
 	{
 		append(list, ft_atoi(tab[i]));
 		i++;
 	}
 	if (error_check(*list))
-		return(0) ;
-	return(1);
+		return (0);
+	return (1);
 }
 
 int	second(char **av, t_list **list)
@@ -92,15 +92,15 @@ int	second(char **av, t_list **list)
 
 	i = 1;
 	if (!parsin_2(av))
-		return(0);
+		return (0);
 	while (av[i])
 	{
 		append(list, ft_atoi(av[i]));
 		i++;
 	}
 	if (error_check(*list))
-		return(0) ;
-	return(1);
+		return (0);
+	return (1);
 }
 
 int	main(int ac, char **av)
