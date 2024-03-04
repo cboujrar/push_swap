@@ -6,7 +6,7 @@
 /*   By: cboujrar <cboujrar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 17:36:23 by cboujrar          #+#    #+#             */
-/*   Updated: 2024/03/01 14:29:37 by cboujrar         ###   ########.fr       */
+/*   Updated: 2024/03/03 04:28:38 by cboujrar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,40 +47,5 @@ size_t	ft_strlen(const char *str)
 
 void	print_error(void)
 {
-	write(1, "Error\n", 6);
-}
-
-int	is_alpha(int c)
-{
-	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
-		return (1);
-	return (0);
-}
-
-int	int_range(char *str)
-{
-	long long	result;
-	int			sign;
-
-	sign = 1;
-	result = 0;
-	while (*str == ' ')
-		str++;
-	if (*str == '-' || *str == '+')
-	{
-		if (*str == '-')
-			sign = -1;
-		str++;
-	}
-	while (*str)
-	{
-		if (*str >= '0' && *str <= '9')
-			result = result * 10 + (*str - '0');
-		str++;
-	}
-	if (sign == 1 && result > 2147483647)
-		return (0);
-	else if (sign == -1 && - result < -2147483648)
-		return (0);
-	return (1);
+	write(2, "Error\n", 6);
 }

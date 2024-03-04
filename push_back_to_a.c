@@ -6,7 +6,7 @@
 /*   By: cboujrar <cboujrar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 19:10:19 by cboujrar          #+#    #+#             */
-/*   Updated: 2024/03/01 21:29:51 by cboujrar         ###   ########.fr       */
+/*   Updated: 2024/03/04 10:15:41 by cboujrar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,8 @@ void	push_back_to_a(t_list **list_a, t_list **list_b)
 	int			j;
 	t_initial	*p;
 
+	if (*list_b == NULL)
+		return;
 	p = malloc(sizeof(t_initial));
 	if (!p)
 		return ;
@@ -80,30 +82,5 @@ void	push_back_to_a(t_list **list_a, t_list **list_b)
 			p->tracker--;
 		}
 	}
-	free(p->sorted_array);
-}
-
-void	append(t_list **list, int value)
-{
-	t_list	*new_node;
-	t_list	*current;
-
-	new_node = malloc(sizeof(t_list));
-	if (!new_node)
-		return ;
-	new_node->value = value;
-	new_node->next = NULL;
-	if (*list == NULL)
-	{
-		*list = new_node;
-	}
-	else
-	{
-		current = *list;
-		while (current->next != NULL)
-		{
-			current = current->next;
-		}
-		current->next = new_node;
-	}
+	free(p);
 }

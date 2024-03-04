@@ -6,7 +6,7 @@
 /*   By: cboujrar <cboujrar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 18:05:48 by cboujrar          #+#    #+#             */
-/*   Updated: 2024/02/25 18:07:17 by cboujrar         ###   ########.fr       */
+/*   Updated: 2024/03/03 05:24:37 by cboujrar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,19 @@ void	delete_last(t_list **list)
 	}
 	free(temp->next);
 	temp->next = NULL;
+}
+
+void	free_list(t_list **list)
+{
+	t_list	*current;
+	t_list	*next;
+
+	current = *list;
+	while (current != NULL)
+	{
+		next = current->next;
+		free(current);
+		current = next;
+	}
+	*list = NULL;
 }

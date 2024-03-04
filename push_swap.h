@@ -6,13 +6,14 @@
 /*   By: cboujrar <cboujrar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:08:39 by cboujrar          #+#    #+#             */
-/*   Updated: 2024/03/01 21:08:48 by cboujrar         ###   ########.fr       */
+/*   Updated: 2024/03/04 13:00:32 by cboujrar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+# include "bonus/get_next_line.h"
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -31,6 +32,7 @@ typedef struct s_prameters
 	int				start;
 	int				end;
 	int				offset;
+	int 			*sorted_array;
 }					t_parameters;
 
 typedef struct s_initial
@@ -47,7 +49,7 @@ int					check_index(t_list *list, int number);
 void				push_to_b(t_list **list_a, t_list **list_b);
 void				push_back_to_a(t_list **list_a, t_list **list_b);
 void				print_error(void);
-int					is_alpha(int c);
+int					is_integer(int c);
 int					int_range(char *str);
 int					is_duplicate(t_list *list);
 int					is_sort(t_list *list);
@@ -59,7 +61,6 @@ char				*put_word(const char *str, int start, int end);
 void				*free_array(char **str, int count);
 void				ft_initiate_vars(size_t *i, int *j, int *s_word);
 char				**ft_split(const char *s);
-t_list				*new_list(int value);
 t_list				*add_front(t_list *list, int value);
 t_list				*last_one(t_list *list);
 void				add_back(t_list *list, int value);
@@ -84,7 +85,15 @@ int					parsin_2(char **av);
 int					parsin_1(char *av, char **tab);
 int					first(char **av, t_list **list);
 int					second(char **av, t_list **list);
-void				init_param(t_parameters **param, int size);
+void				init_param(t_parameters **param, t_list *list);
 void				re_init_param(t_parameters **p);
+int					ft_strcmp(char *s1, char *s2);
+void				check_operation(t_list *list_a, t_list *list_b, char *c);
+void				check_and_write(t_list *list_a, t_list *list_b);
+int					first_bonus(char **av, t_list **list);
+int					second_bonus(char **av, t_list **list);
+void				free_list(t_list **list);
+int 				is_quote(t_list *list);
+
 
 #endif

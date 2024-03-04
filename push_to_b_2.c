@@ -6,15 +6,15 @@
 /*   By: cboujrar <cboujrar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 19:13:10 by cboujrar          #+#    #+#             */
-/*   Updated: 2024/02/29 19:15:46 by cboujrar         ###   ########.fr       */
+/*   Updated: 2024/03/04 13:00:56 by cboujrar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	is_in_range(int *sorted_array, t_parameters *p, int value)
+int	is_in_range(t_parameters *p, int value)
 {
-	if (value >= sorted_array[p->start] && value <= sorted_array[p->end])
+	if (value >= p->sorted_array[p->start] && value <= p->sorted_array[p->end])
 		return (1);
 	return (0);
 }
@@ -34,7 +34,7 @@ void	find_number(t_list **list_a, t_list **list_b, int *array,
 	int		j;
 
 	tracker = (*list_a);
-	while (tracker && !(is_in_range(array, *p, tracker->value)))
+	while (tracker && !(is_in_range(*p, tracker->value)))
 		tracker = tracker->next;
 	if (tracker)
 	{
@@ -56,28 +56,62 @@ void	find_number(t_list **list_a, t_list **list_b, int *array,
 		re_init_param(p);
 }
 
+void sort_three(t_list **list)
+{
+    int first = (*list)->value;
+    int second = (*list)->next->value;
+    int third = (*list)->next->next->value;
+
+    if (first < second && second < third)
+        return; 
+    if (first > second && first > third)
+	{
+        if (second > third) 
+		{
+            ra(list);
+			*list = sa(*list);
+        } 
+		else 
+            ra(list);
+    } 
+	else if (first > second && first < third)
+		*list = sa(*list);
+	else if (first > third && first < second)
+        rra(list);
+	else if (first < second && second > third)
+	{
+		rra(list);
+		*list = sa(*list);
+	}
+}
+
+
+
 void	push_to_b(t_list **list_a, t_list **list_b)
 {
 	t_parameters	*p;
-	int				*sorted_array;
 	int				top;
 
-	sorted_array = create_sorted_array(*list_a);
 	p = malloc(sizeof(t_parameters));
 	if (!p)
 		return ;
-	init_param(&p, list_size(*list_a));
-	while (list_size(*list_a) > 0)
+	init_param(&p, *list_a);
+	if (list_size(*list_a) <= 3)
+			sort_three(list_a);
+	else
 	{
-		top = (*list_a)->value;
-		if (is_in_range(sorted_array, p, top))
+		while (list_size(*list_a) > 0)
 		{
-			pb(list_a, list_b);
-			if (top < sorted_array[p->midd])
-				rb(list_b);
+			top = (*list_a)->value;
+			if (is_in_range(p, top))
+			{
+				pb(list_a, list_b);
+				if (top < p->sorted_array[p->midd])
+					rb(list_b);
+			}
+			else
+				find_number(list_a, list_b, p->sorted_array, &p);
 		}
-		else
-			find_number(list_a, list_b, sorted_array, &p);
 	}
-	free(sorted_array);
+	free(p);
 }

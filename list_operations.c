@@ -6,23 +6,11 @@
 /*   By: cboujrar <cboujrar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 17:47:13 by cboujrar          #+#    #+#             */
-/*   Updated: 2024/03/01 21:36:40 by cboujrar         ###   ########.fr       */
+/*   Updated: 2024/03/03 16:15:15 by cboujrar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-t_list	*new_list(int value)
-{
-	t_list	*my_list;
-
-	my_list = malloc(sizeof(t_list));
-	if (!my_list)
-		return (0);
-	my_list->value = value;
-	my_list->next = NULL;
-	return (my_list);
-}
 
 t_list	*add_front(t_list *list, int value)
 {
@@ -74,4 +62,28 @@ int	list_size(t_list *list)
 		size++;
 	}
 	return (size);
+}
+
+void	append(t_list **list, int value)
+{
+	t_list	*new_node;
+	t_list	*current;
+
+	current = NULL;
+	new_node = malloc(sizeof(t_list));
+	if (!new_node)
+		return ;
+	new_node->value = value;
+	new_node->next = NULL;
+	if (*list == NULL)
+		*list = new_node;
+	else
+	{
+		current = *list;
+		while (current->next != NULL)
+		{
+			current = current->next;
+		}
+		current->next = new_node;
+	}
 }

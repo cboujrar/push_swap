@@ -6,7 +6,7 @@
 /*   By: cboujrar <cboujrar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 15:51:48 by cboujrar          #+#    #+#             */
-/*   Updated: 2024/02/29 19:13:34 by cboujrar         ###   ########.fr       */
+/*   Updated: 2024/03/04 12:55:32 by cboujrar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,9 @@ int	check_index(t_list *list, int number)
 	return (-1);
 }
 
-void	init_param(t_parameters **param, int size)
+void	init_param(t_parameters **param, t_list *list)
 {
-	(*param)->size = size;
+	(*param)->size = list_size(list);
 	if ((*param)->size <= 10)
 		(*param)->pivot = 5;
 	else if ((*param)->size <= 150)
@@ -86,6 +86,7 @@ void	init_param(t_parameters **param, int size)
 	(*param)->offset = (*param)->size / (*param)->pivot;
 	(*param)->start = (*param)->midd - (*param)->offset;
 	(*param)->end = (*param)->midd + (*param)->offset;
+	(*param)->sorted_array = create_sorted_array(list);
 }
 
 void	re_init_param(t_parameters **p)
