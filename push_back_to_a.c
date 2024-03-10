@@ -6,7 +6,7 @@
 /*   By: cboujrar <cboujrar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 19:10:19 by cboujrar          #+#    #+#             */
-/*   Updated: 2024/03/04 10:15:41 by cboujrar         ###   ########.fr       */
+/*   Updated: 2024/03/04 14:58:10 by cboujrar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,16 @@ void	push_back_to_a(t_list **list_a, t_list **list_b)
 	while (*list_b || p->tracker >= 0)
 	{
 		j = check_index(*list_b, p->sorted_array[p->tracker]);
-		if ((*list_a) == NULL)
-			find_and_push(list_a, list_b, j, &p);
+		if (list_size(*list_a) == 3)
+		{
+			if ((*list_a)->value < (*list_b)->value)
+			{
+				ra(list_a);
+				p->down++;
+			}
+			else 
+			find_and_push(list_a, list_b, j, &p);	
+		}
 		else if (j != -1)
 			push_to_a(list_a, list_b, &p, j);
 		else
@@ -82,5 +90,7 @@ void	push_back_to_a(t_list **list_a, t_list **list_b)
 			p->tracker--;
 		}
 	}
+	if (p->down > 0)
+		rra(list_a);
 	free(p);
 }

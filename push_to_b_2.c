@@ -6,7 +6,7 @@
 /*   By: cboujrar <cboujrar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 19:13:10 by cboujrar          #+#    #+#             */
-/*   Updated: 2024/03/04 13:00:56 by cboujrar         ###   ########.fr       */
+/*   Updated: 2024/03/04 14:41:41 by cboujrar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ void	push_to_b(t_list **list_a, t_list **list_b)
 			sort_three(list_a);
 	else
 	{
-		while (list_size(*list_a) > 0)
+		while (list_size(*list_a) > 3)
 		{
 			top = (*list_a)->value;
 			if (is_in_range(p, top))
@@ -112,6 +112,7 @@ void	push_to_b(t_list **list_a, t_list **list_b)
 			else
 				find_number(list_a, list_b, p->sorted_array, &p);
 		}
+		sort_three(list_a);
 	}
 	free(p);
 }

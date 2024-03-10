@@ -6,7 +6,7 @@
 /*   By: cboujrar <cboujrar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 15:51:48 by cboujrar          #+#    #+#             */
-/*   Updated: 2024/03/04 12:55:32 by cboujrar         ###   ########.fr       */
+/*   Updated: 2024/03/04 14:41:19 by cboujrar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,6 @@ void	re_init_param(t_parameters **p)
 	(*p)->end = (*p)->end + (*p)->offset;
 	if ((*p)->start < 0)
 		(*p)->start = 0;
-	if ((*p)->end >= (*p)->size - 1)
-		(*p)->end = (*p)->size - 1;
+	if ((*p)->end >= (*p)->size - 4)
+		(*p)->end = (*p)->size - 4;
 }
