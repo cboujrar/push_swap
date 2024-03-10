@@ -6,7 +6,7 @@
 /*   By: cboujrar <cboujrar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 04:03:54 by cboujrar          #+#    #+#             */
-/*   Updated: 2024/03/03 15:59:47 by cboujrar         ###   ########.fr       */
+/*   Updated: 2024/03/10 18:26:57 by cboujrar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,6 @@ void	pb(t_list **list_a, t_list **list_b)
 {
 	if (*list_a == NULL)
 		return ;
-	*list_b = add_front(*list_b, (*list_a)->value);
+	add_front(list_b, (*list_a)->value);
 	*list_a = delete_head(*list_a);
 }

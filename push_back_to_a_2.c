@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   push_back_to_a_2.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cboujrar <cboujrar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/08 19:00:31 by cboujrar          #+#    #+#             */
-/*   Updated: 2024/03/10 18:23:32 by cboujrar         ###   ########.fr       */
+/*   Created: 2024/03/10 19:21:43 by cboujrar          #+#    #+#             */
+/*   Updated: 2024/03/10 19:32:19 by cboujrar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "push_swap.h"
 
-# include <stdlib.h>
-# include <unistd.h>
+void	handle_three(t_list **list_a, t_list **list_b, int j, t_initial **p)
+{
+	if ((*list_a)->value < (*list_b)->value)
+	{
+		ra(list_a);
+		(*p)->down++;
+	}
+	else
+		find_and_push(list_a, list_b, j, p);
+}
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 13
-# endif
-
-size_t	ft_srtlen(char *s);
-char	*ft_strchr(char *s, int c);
-char	*ft_strdup(char *s);
-char	*ft_substr(char *s, int start, int len);
-char	*ft_strjoin(char *s1, char *s2);
-char	*get_next_line(int fd);
-
-#endif
+void	reverse_rotate(t_list **list_a, t_initial **p)
+{
+	rra(list_a);
+	(*p)->down--;
+	(*p)->tracker--;
+}

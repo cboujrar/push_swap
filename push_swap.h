@@ -6,7 +6,7 @@
 /*   By: cboujrar <cboujrar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:08:39 by cboujrar          #+#    #+#             */
-/*   Updated: 2024/03/04 13:00:32 by cboujrar         ###   ########.fr       */
+/*   Updated: 2024/03/10 19:55:12 by cboujrar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ typedef struct s_prameters
 	int				start;
 	int				end;
 	int				offset;
-	int 			*sorted_array;
+	int				*sorted_array;
 }					t_parameters;
 
 typedef struct s_initial
@@ -61,7 +61,7 @@ char				*put_word(const char *str, int start, int end);
 void				*free_array(char **str, int count);
 void				ft_initiate_vars(size_t *i, int *j, int *s_word);
 char				**ft_split(const char *s);
-t_list				*add_front(t_list *list, int value);
+void				add_front(t_list **list, int value);
 t_list				*last_one(t_list *list);
 void				add_back(t_list *list, int value);
 int					list_size(t_list *list);
@@ -88,12 +88,19 @@ int					second(char **av, t_list **list);
 void				init_param(t_parameters **param, t_list *list);
 void				re_init_param(t_parameters **p);
 int					ft_strcmp(char *s1, char *s2);
-void				check_operation(t_list *list_a, t_list *list_b, char *c);
+void				check_operation(t_list **list_a, t_list **list_b, char *c);
 void				check_and_write(t_list *list_a, t_list *list_b);
 int					first_bonus(char **av, t_list **list);
 int					second_bonus(char **av, t_list **list);
 void				free_list(t_list **list);
-int 				is_quote(t_list *list);
-
+void				free_parameters(t_parameters *p);
+void				rr(t_list **list_a, t_list **list_b);
+void				rrr(t_list **list_a, t_list **list_b);
+void				handle_three(t_list **list_a, t_list **list_b, int j,
+						t_initial **p);
+void				reverse_rotate(t_list **list_a, t_initial **p);
+void				find_and_push(t_list **list_a, t_list **list_b, int j,
+						t_initial **p);
+void 				free_tab(char **tab);
 
 #endif

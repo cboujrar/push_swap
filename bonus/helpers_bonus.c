@@ -6,7 +6,7 @@
 /*   By: cboujrar <cboujrar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 04:02:49 by cboujrar          #+#    #+#             */
-/*   Updated: 2024/03/03 15:59:26 by cboujrar         ###   ########.fr       */
+/*   Updated: 2024/03/10 19:37:26 by cboujrar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,26 +22,32 @@ int	ft_strcmp(char *s1, char *s2)
 	return (s1[i] - s2[i]);
 }
 
-void	check_operation(t_list *list_a, t_list *list_b, char *c)
+void	check_operation(t_list **list_a, t_list **list_b, char *c)
 {
 	if (ft_strcmp(c, "pa\n") == 0)
-		pa(&list_a, &list_b);
+		pa(list_a, list_b);
 	else if (ft_strcmp(c, "pb\n") == 0)
-		pb(&list_a, &list_b);
+		pb(list_a, list_b);
 	else if (ft_strcmp(c, "sa\n") == 0)
-		list_a = sa(list_a);
+		*list_a = sa(*list_a);
 	else if (ft_strcmp(c, "sb\n") == 0)
-		list_b = sb(list_b);
-	else if (ft_strcmp(c, "ra\n") == 0)
-		ra(&list_a);
-	else if (ft_strcmp(c, "rb\n") == 0)
-		rb(&list_b);
-	else if (ft_strcmp(c, "rra\n") == 0)
-		rra(&list_a);
-	else if (ft_strcmp(c, "rrb\n") == 0)
-		rrb(&list_b);
+		*list_b = sb(*list_b);
 	else if (ft_strcmp(c, "ss\n") == 0)
-		ss(&list_a, &list_b);
+		ss(list_a, list_b);
+	else if (ft_strcmp(c, "ra\n") == 0)
+		ra(list_a);
+	else if (ft_strcmp(c, "rb\n") == 0)
+		rb(list_b);
+	else if (ft_strcmp(c, "rra\n") == 0)
+		rra(list_a);
+	else if (ft_strcmp(c, "rrb\n") == 0)
+		rrb(list_b);
+	else if (ft_strcmp(c, "rr\n") == 0)
+		rr(list_a, list_b);
+	else if (ft_strcmp(c, "rr\n") == 0)
+		rrr(list_a, list_b);
+	else
+		print_and_exit();
 }
 
 void	check_and_write(t_list *list_a, t_list *list_b)

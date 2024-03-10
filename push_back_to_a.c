@@ -6,7 +6,7 @@
 /*   By: cboujrar <cboujrar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 19:10:19 by cboujrar          #+#    #+#             */
-/*   Updated: 2024/03/04 14:58:10 by cboujrar         ###   ########.fr       */
+/*   Updated: 2024/03/10 19:22:08 by cboujrar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,15 @@ void	initialise(t_initial **p, t_list **list_b)
 	(*p)->sorted_array = create_sorted_array(*list_b);
 }
 
+void	free_t_intial(t_initial *p)
+{
+	if (p != NULL)
+	{
+		free(p->sorted_array);
+		free(p);
+	}
+}
+
 void	push_to_a(t_list **list_a, t_list **list_b, t_initial **p, int j)
 {
 	if ((*list_b)->value == (*p)->sorted_array[(*p)->tracker])
@@ -63,7 +72,7 @@ void	push_back_to_a(t_list **list_a, t_list **list_b)
 	t_initial	*p;
 
 	if (*list_b == NULL)
-		return;
+		return ;
 	p = malloc(sizeof(t_initial));
 	if (!p)
 		return ;
@@ -72,25 +81,13 @@ void	push_back_to_a(t_list **list_a, t_list **list_b)
 	{
 		j = check_index(*list_b, p->sorted_array[p->tracker]);
 		if (list_size(*list_a) == 3)
-		{
-			if ((*list_a)->value < (*list_b)->value)
-			{
-				ra(list_a);
-				p->down++;
-			}
-			else 
-			find_and_push(list_a, list_b, j, &p);	
-		}
+			handle_three(list_a, list_b, j, &p);
 		else if (j != -1)
 			push_to_a(list_a, list_b, &p, j);
 		else
-		{
-			rra(list_a);
-			p->down--;
-			p->tracker--;
-		}
+			reverse_rotate(list_a, &p);
 	}
 	if (p->down > 0)
 		rra(list_a);
-	free(p);
+	free_t_intial(p);
 }

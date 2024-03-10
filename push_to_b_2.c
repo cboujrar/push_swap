@@ -6,7 +6,7 @@
 /*   By: cboujrar <cboujrar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 19:13:10 by cboujrar          #+#    #+#             */
-/*   Updated: 2024/03/04 14:41:41 by cboujrar         ###   ########.fr       */
+/*   Updated: 2024/03/10 19:28:44 by cboujrar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,10 @@ int	is_in_range(t_parameters *p, int value)
 	return (0);
 }
 
-void	push_and_rotate(t_list **list_a, t_list **list_b, int midd,
-		t_list *tracker)
+void	push_and_rotate(t_list **list_a, t_list **list_b, int midd)
 {
 	pb(list_a, list_b);
-	if ((*list_b)->next != NULL && tracker->value < midd)
+	if ((*list_b)->next != NULL && (*list_b)->value < midd)
 		rb(list_b);
 }
 
@@ -50,69 +49,63 @@ void	find_number(t_list **list_a, t_list **list_b, int *array,
 			while (j--)
 				rra(list_a);
 		}
-		push_and_rotate(list_a, list_b, array[(*p)->midd], tracker);
+		push_and_rotate(list_a, list_b, array[(*p)->midd]);
 	}
 	if (!tracker)
 		re_init_param(p);
 }
 
-void sort_three(t_list **list)
+void	sort_three(t_list **list)
 {
-    int first = (*list)->value;
-    int second = (*list)->next->value;
-    int third = (*list)->next->next->value;
+	int	third;
 
-    if (first < second && second < third)
-        return; 
-    if (first > second && first > third)
+	third = (*list)->next->next->value;
+	if ((*list)->value < (*list)->next->value && (*list)->next->value < third)
+		return ;
+	if ((*list)->value > (*list)->next->value && (*list)->value > third)
 	{
-        if (second > third) 
+		if ((*list)->next->value > third)
 		{
-            ra(list);
+			ra(list);
 			*list = sa(*list);
-        } 
-		else 
-            ra(list);
-    } 
-	else if (first > second && first < third)
+		}
+		else
+			ra(list);
+	}
+	else if ((*list)->value > (*list)->next->value && (*list)->value < third)
 		*list = sa(*list);
-	else if (first > third && first < second)
-        rra(list);
-	else if (first < second && second > third)
+	else if ((*list)->value > third && (*list)->value < (*list)->next->value)
+		rra(list);
+	else if ((*list)->value < (*list)->next->value
+		&& (*list)->next->value > third)
 	{
 		rra(list);
 		*list = sa(*list);
 	}
 }
 
-
-
 void	push_to_b(t_list **list_a, t_list **list_b)
 {
 	t_parameters	*p;
-	int				top;
 
 	p = malloc(sizeof(t_parameters));
 	if (!p)
 		return ;
 	init_param(&p, *list_a);
-	if (list_size(*list_a) <= 3)
-			sort_three(list_a);
+	if (list_size(*list_a) == 2)
+		(*list_a) = sa(*list_a);
+	else if (list_size(*list_a) == 3)
+		sort_three(list_a);
 	else
 	{
 		while (list_size(*list_a) > 3)
 		{
-			top = (*list_a)->value;
-			if (is_in_range(p, top))
-			{
-				pb(list_a, list_b);
-				if (top < p->sorted_array[p->midd])
-					rb(list_b);
-			}
+			if (is_in_range(p, (*list_a)->value))
+				push_and_rotate(list_a, list_b, p->sorted_array[p->midd]);
 			else
 				find_number(list_a, list_b, p->sorted_array, &p);
 		}
 		sort_three(list_a);
 	}
-	free(p);
+	free_parameters(p);
 }

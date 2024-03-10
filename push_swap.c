@@ -6,7 +6,7 @@
 /*   By: cboujrar <cboujrar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 17:43:26 by cboujrar          #+#    #+#             */
-/*   Updated: 2024/03/03 05:26:20 by cboujrar         ###   ########.fr       */
+/*   Updated: 2024/03/10 17:05:47 by cboujrar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	main(int ac, char **av)
 		push_to_b(&list_a, &list_b);
 		push_back_to_a(&list_a, &list_b);
 	}
-	free(list_a);
-	free(list_b);
+	free_list(&list_a);
+	free_list(&list_b);
 	return (0);
 }

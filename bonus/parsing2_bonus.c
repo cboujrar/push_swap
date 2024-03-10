@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing2.c                                         :+:      :+:    :+:   */
+/*   parsing2_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cboujrar <cboujrar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 04:07:20 by cboujrar          #+#    #+#             */
-/*   Updated: 2024/03/10 19:55:06 by cboujrar         ###   ########.fr       */
+/*   Updated: 2024/03/10 18:58:38 by cboujrar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	parsin_2(char **av)
 {
 	int		i;
 	int		j;
+	int		w;
 	char	**tab;
 
+	w = 0;
 	i = 1;
 	while (av[i])
 	{
 		j = 0;
-		if ((av[i][j] == '+' || av[i][j] == '-') && (av[i][j + 1] >= '0'
-				&& av[i][j + 1] <= '9'))
+		if (av[i][j] == '+' || av[i][j] == '-')
 			j++;
 		while (av[i][j])
 		{
@@ -46,12 +47,24 @@ int	parsin_2(char **av)
 			if (!(int_range(tab[j])))
 			{
 				print_error();
-				free_tab(tab);
+				w = 0;
+				while (tab[w])
+				{
+					free(tab[w]);
+					w++;
+				}
+				free(tab);
 				return (0);
 			}
 			j++;
 		}
-		free_tab(tab);
+		w = 0;
+		while (tab[w])
+		{
+			free(tab[w]);
+			w++;
+		}
+		free(tab);
 		i++;
 	}
 	return (1);
@@ -64,7 +77,7 @@ int	parsin_1(char *av, char **tab)
 	i = 0;
 	while (av[i])
 	{
-		if ((av[i] == '+' || av[i] == '-') && (av[i + 1] >= '0' && av[i+ 1] <= '9'))
+		if (av[i] == '+' || av[i] == '-')
 			i++;
 		if (!(is_integer(av[i])))
 		{
@@ -117,7 +130,13 @@ int	first(char **av, t_list **list)
 	tab = ft_split(av[1]);
 	if (!parsin_1(av[1], tab) || is_empty(av) == 0)
 	{
-		free_tab(tab);
+		i = 0;
+		while (tab[i])
+		{
+			free(tab[i]);
+			i++;
+		}
+		free(tab);
 		return (0);
 	}
 	i = 0;
@@ -126,7 +145,13 @@ int	first(char **av, t_list **list)
 		append(list, ft_atoi(tab[i]));
 		i++;
 	}
-	free_tab(tab);
+	i = 0;
+	while (tab[i])
+	{
+		free(tab[i]);
+		i++;
+	}
+	free(tab);
 	if (error_check(*list))
 		return (0);
 	return (1);
@@ -150,26 +175,20 @@ int	second(char **av, t_list **list)
 			append(list, ft_atoi(tab[j]));
 			j++;
 		}
-		free_tab(tab);
+		j = 0;
+		while (tab[j])
+		{
+			free(tab[j]);
+			j++;
+		}
+		free(tab);
 		i++;
 	}
 	if (error_check(*list))
 	{
+		printf("here\n");
 		free_list(list);
 		return (0);
 	}
 	return (1);
-}
-
-void free_tab(char **tab)
-{
-	int i;
-
-	i = 0;
-	while (tab[i])
-	{
-		free(tab[i]);
-		i++;
-	}
-	free(tab);
 }

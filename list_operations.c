@@ -6,22 +6,22 @@
 /*   By: cboujrar <cboujrar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 17:47:13 by cboujrar          #+#    #+#             */
-/*   Updated: 2024/03/03 16:15:15 by cboujrar         ###   ########.fr       */
+/*   Updated: 2024/03/10 16:38:56 by cboujrar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*add_front(t_list *list, int value)
+void	add_front(t_list **list, int value)
 {
 	t_list	*my_list;
 
 	my_list = malloc(sizeof(t_list));
 	if (!my_list)
-		return (0);
+		return ;
 	my_list->value = value;
-	my_list->next = list;
-	return (my_list);
+	my_list->next = *list;
+	*list = my_list;
 }
 
 t_list	*last_one(t_list *list)

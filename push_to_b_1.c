@@ -6,7 +6,7 @@
 /*   By: cboujrar <cboujrar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 15:51:48 by cboujrar          #+#    #+#             */
-/*   Updated: 2024/03/04 14:41:19 by cboujrar         ###   ########.fr       */
+/*   Updated: 2024/03/10 19:25:01 by cboujrar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void	init_param(t_parameters **param, t_list *list)
 	else if ((*param)->size <= 150)
 		(*param)->pivot = 8;
 	else
-		(*param)->pivot = 18;
+		(*param)->pivot = 20;
 	(*param)->midd = (*param)->size / 2 - 1;
 	(*param)->offset = (*param)->size / (*param)->pivot;
 	(*param)->start = (*param)->midd - (*param)->offset;

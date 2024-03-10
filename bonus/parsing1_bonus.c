@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing1.c                                         :+:      :+:    :+:   */
+/*   parsing1_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cboujrar <cboujrar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 11:58:23 by cboujrar          #+#    #+#             */
-/*   Updated: 2024/03/10 12:53:07 by cboujrar         ###   ########.fr       */
+/*   Updated: 2024/03/10 18:32:04 by cboujrar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	is_duplicate(t_list *list)
 {
@@ -58,8 +58,6 @@ int	error_check(t_list *list)
 		print_error();
 		return (1);
 	}
-	else if (is_sort(list))
-		return (1);
 	return (0);
 }
 

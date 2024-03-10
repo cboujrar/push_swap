@@ -6,7 +6,7 @@
 /*   By: cboujrar <cboujrar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 17:36:23 by cboujrar          #+#    #+#             */
-/*   Updated: 2024/03/03 04:28:38 by cboujrar         ###   ########.fr       */
+/*   Updated: 2024/03/10 19:24:46 by cboujrar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,13 @@ size_t	ft_strlen(const char *str)
 void	print_error(void)
 {
 	write(2, "Error\n", 6);
+}
+
+void	free_parameters(t_parameters *p)
+{
+	if (p != NULL)
+	{
+		free(p->sorted_array);
+		free(p);
+	}
 }
