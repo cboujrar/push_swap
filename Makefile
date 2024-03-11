@@ -1,15 +1,15 @@
 NAME = push_swap
 BNAME = checker
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g3 
+CFLAGS = -Wall -Wextra -Werror
 LIBC = ar rcs
 RM = rm -f
 MANDATORY = push_to_b_1.c helpers.c parsing1.c list_operations.c operations.c  push_swap.c\
 			list_operations_2.c ft_split.c operations_2.c push_back_to_a.c push_to_b_2.c\
-			parsing2.c push_back_to_a_2.c
+			parsing2.c push_back_to_a_2.c helpers_parsing.c
 BONUS  = bonus/get_next_line.c bonus/get_next_line_utils.c bonus/checker.c bonus/helpers_bonus.c bonus/operations_bonus1.c\
-			bonus/operations_bonus2.c  bonus/parsing1_bonus.c bonus/parsing2_bonus.c helpers.c list_operations.c list_operations_2.c ft_split.c\
-			helpers_bonus_2.c 
+			bonus/operations_bonus2.c  bonus/parsing1_bonus.c bonus/parsing2_bonus.c helpers.c list_operations.c \
+			bonus/helpers_bonus_2.c  bonus/helpers_parsing_bonus.c list_operations_2.c ft_split.c
 			
 	
 MANDATORY_O = ${MANDATORY:.c=.o}

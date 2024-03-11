@@ -6,7 +6,7 @@
 /*   By: cboujrar <cboujrar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 04:07:20 by cboujrar          #+#    #+#             */
-/*   Updated: 2024/03/10 19:55:06 by cboujrar         ###   ########.fr       */
+/*   Updated: 2024/03/11 10:45:03 by cboujrar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,42 +15,21 @@
 int	parsin_2(char **av)
 {
 	int		i;
-	int		j;
 	char	**tab;
 
 	i = 1;
 	while (av[i])
 	{
-		j = 0;
-		if ((av[i][j] == '+' || av[i][j] == '-') && (av[i][j + 1] >= '0'
-				&& av[i][j + 1] <= '9'))
-			j++;
-		while (av[i][j])
-		{
-			if (!(is_integer(av[i][j])))
-			{
-				print_error();
-				return (0);
-			}
-			j++;
-		}
+		if (check_integer(av[i]) == 0)
+			return (0);
 		tab = ft_split(av[i]);
 		if (!tab)
 		{
 			print_error();
 			return (0);
 		}
-		j = 0;
-		while (tab[j])
-		{
-			if (!(int_range(tab[j])))
-			{
-				print_error();
-				free_tab(tab);
-				return (0);
-			}
-			j++;
-		}
+		if (check_range(tab) == 0)
+			return (0);
 		free_tab(tab);
 		i++;
 	}
@@ -64,7 +43,7 @@ int	parsin_1(char *av, char **tab)
 	i = 0;
 	while (av[i])
 	{
-		if ((av[i] == '+' || av[i] == '-') && (av[i + 1] >= '0' && av[i+ 1] <= '9'))
+		if (check_signe(av[i], av[i + 1]) == 1)
 			i++;
 		if (!(is_integer(av[i])))
 		{
@@ -77,24 +56,6 @@ int	parsin_1(char *av, char **tab)
 	while (tab[i])
 	{
 		if (!(int_range(tab[i])))
-		{
-			print_error();
-			return (0);
-		}
-		i++;
-	}
-	return (1);
-}
-
-int	is_empty(char **av)
-{
-	int	i;
-
-	i = 0;
-	while (av[1][i])
-	{
-		if ((av[1][i] == ' ' || av[1][i] == '\t') && (av[1][i + 1] == ' '
-				|| av[1][i + 1] == '\t'))
 		{
 			print_error();
 			return (0);
@@ -159,17 +120,4 @@ int	second(char **av, t_list **list)
 		return (0);
 	}
 	return (1);
-}
-
-void free_tab(char **tab)
-{
-	int i;
-
-	i = 0;
-	while (tab[i])
-	{
-		free(tab[i]);
-		i++;
-	}
-	free(tab);
 }

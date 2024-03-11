@@ -6,7 +6,7 @@
 /*   By: cboujrar <cboujrar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 17:43:26 by cboujrar          #+#    #+#             */
-/*   Updated: 2024/03/10 17:05:47 by cboujrar         ###   ########.fr       */
+/*   Updated: 2024/03/11 12:18:13 by cboujrar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,7 @@ int	main(int ac, char **av)
 	list_a = NULL;
 	list_b = NULL;
 	if (ac < 2)
-	{
-		print_error();
 		return (0);
-	}
 	else if (ac == 2 && first(av, &list_a))
 	{
 		push_to_b(&list_a, &list_b);

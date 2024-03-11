@@ -6,7 +6,7 @@
 /*   By: cboujrar <cboujrar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:08:39 by cboujrar          #+#    #+#             */
-/*   Updated: 2024/03/10 19:55:12 by cboujrar         ###   ########.fr       */
+/*   Updated: 2024/03/11 12:36:53 by cboujrar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define PUSH_SWAP_H
 
 # include "bonus/get_next_line.h"
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 
@@ -63,7 +62,6 @@ void				ft_initiate_vars(size_t *i, int *j, int *s_word);
 char				**ft_split(const char *s);
 void				add_front(t_list **list, int value);
 t_list				*last_one(t_list *list);
-void				add_back(t_list *list, int value);
 int					list_size(t_list *list);
 t_list				*delete_head(t_list *list);
 void				delete_last(t_list **list);
@@ -101,6 +99,11 @@ void				handle_three(t_list **list_a, t_list **list_b, int j,
 void				reverse_rotate(t_list **list_a, t_initial **p);
 void				find_and_push(t_list **list_a, t_list **list_b, int j,
 						t_initial **p);
-void 				free_tab(char **tab);
+void				free_tab(char **tab);
+int					check_signe(char c, char a);
+int					check_integer(char *av);
+int					check_range(char **tab);
+int					is_empty(char **av);
+void				print_and_exit(void);
 
 #endif

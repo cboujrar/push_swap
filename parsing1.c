@@ -6,7 +6,7 @@
 /*   By: cboujrar <cboujrar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 11:58:23 by cboujrar          #+#    #+#             */
-/*   Updated: 2024/03/10 12:53:07 by cboujrar         ###   ########.fr       */
+/*   Updated: 2024/03/11 13:27:06 by cboujrar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ int	int_range(char *str)
 	}
 	if (sign == 1 && result > 2147483647)
 		return (0);
-	else if (sign == -1 && -result < -2147483648)
+	else if (sign == -1 && - result < -2147483648)
 		return (0);
 	return (1);
 }

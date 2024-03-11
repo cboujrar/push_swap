@@ -6,7 +6,7 @@
 /*   By: cboujrar <cboujrar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 04:05:01 by cboujrar          #+#    #+#             */
-/*   Updated: 2024/03/10 19:39:05 by cboujrar         ###   ########.fr       */
+/*   Updated: 2024/03/11 12:03:36 by cboujrar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,34 @@
 
 void	ra(t_list **list)
 {
+	t_list	*current;
+	t_list	*head;
+
 	if (*list == NULL || list_size(*list) == 1)
 		return ;
-	add_back(*list, (*list)->value);
-	(*list) = (*list)->next;
+	head = *list;
+	current = *list;
+	while (current->next)
+		current = current->next;
+	*list = head->next;
+	head->next = NULL;
+	current->next = head;
 }
 
 void	rb(t_list **list)
 {
+	t_list	*current;
+	t_list	*head;
+
 	if (*list == NULL || list_size(*list) == 1)
 		return ;
-	add_back(*list, (*list)->value);
-	(*list) = (*list)->next;
+	head = *list;
+	current = *list;
+	while (current->next)
+		current = current->next;
+	*list = head->next;
+	head->next = NULL;
+	current->next = head;
 }
 
 void	rrb(t_list **list)

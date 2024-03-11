@@ -6,7 +6,7 @@
 /*   By: cboujrar <cboujrar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 22:36:10 by cboujrar          #+#    #+#             */
-/*   Updated: 2024/03/10 18:56:47 by cboujrar         ###   ########.fr       */
+/*   Updated: 2024/03/11 13:29:56 by cboujrar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	read_and_check(t_list **list_a, t_list **list_b)
 	while (c != NULL)
 	{
 		check_operation(list_a, list_b, c);
+		free(c);
 		c = get_next_line(0);
 	}
 }
@@ -33,13 +34,22 @@ int	main(int ac, char **av)
 	list_b = NULL;
 	if (ac < 2)
 		return (0);
-	else if ((ac == 2 && first(av, &list_a)) || (ac > 2 && second(av, &list_a)))
-		read_and_check(&list_a, &list_b);
+	else if (ac == 2)
+	{
+		if (first(av, &list_a) == 0)
+			exit(1);
+	}
+	else if (ac > 2)
+	{
+		if (second(av, &list_a) == 0)
+			exit(1);
+	}
+	read_and_check(&list_a, &list_b);
 	if (is_sort(list_a) && list_b == NULL)
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);
-	free(list_a);
-	free(list_b);
+	free_list(&list_a);
+	free_list(&list_b);
 	return (0);
 }
